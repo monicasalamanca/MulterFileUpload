@@ -1,7 +1,10 @@
 const express = require('express')
 const bodyParser= require('body-parser')
 const multer = require('multer')
-const next = require('next')
+const next = require('next');
+// const myPage = require('./pages/index');
+
+const react = require('react');
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -42,9 +45,10 @@ app.prepare().then(() => {
     return handle(req, res)
   })
 
-  // server.get('/',function(req,res){
-  //   res.write(ReactDOMServer.renderToString(<myPage />))
-  // });
+  server.get('/',function(req,res){
+    // res.write(ReactDOMServer.renderToString(<myPage />))
+    return app.render(req, res, '/', query)
+  });
   
   // upload single file
   server.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
