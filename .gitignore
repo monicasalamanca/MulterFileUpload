@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /uploads
+/.next
 
 # dependencies
 /node_modules
